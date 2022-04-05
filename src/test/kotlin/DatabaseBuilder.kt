@@ -28,7 +28,7 @@ class DatabaseBuilder {
             spread = 90F
             rowSpacing = 90F
             height = 180F
-            minGarminateTemperature = 15F
+            minGarminationTemperature = 15F
             crossPolination = false
             minGarminationTime = -1
             maxGarminationTime = -1
@@ -53,7 +53,7 @@ class DatabaseBuilder {
                 spread = 50F
                 rowSpacing = 50F
                 height = 70F
-                minGarminateTemperature = 20F
+                minGarminationTemperature = 20F
                 crossPolination = false
                 minGarminationTime = 20
                 maxGarminationTime = 28
@@ -78,7 +78,7 @@ class DatabaseBuilder {
                 spread = 30F
                 rowSpacing = 35F
                 height = 30F
-                minGarminateTemperature = 4.5F
+                minGarminationTemperature = 4.5F
                 crossPolination = true
                 minGarminationTime = 7
                 maxGarminationTime = 42

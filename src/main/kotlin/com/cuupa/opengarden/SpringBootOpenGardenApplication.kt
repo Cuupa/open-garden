@@ -1,4 +1,4 @@
-package com.cuupa.opengarden.com.cuupa.opengarden
+package com.cuupa.opengarden
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
