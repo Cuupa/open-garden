@@ -1,0 +1,22 @@
+<nav class="navbar navbar-light bg-light form-inline" style="padding: 0px; width: 100%">
+    <a class="navbar-brand" style="margin-left: 10px" href="/">
+        <span th:text="${@environment.getProperty('application.name')}" style="font-family: Consolas, serif;"></span>
+    </a>
+
+    <!--/*@thymesVar id="search" type="com.cuupa.opengarden.Search"*/-->
+    <form th:action="@{/search}" method="post" th:object="${search}">
+        <nav class="navbar navbar-light bg-light">
+            <!--<input aria-label="ARIA-LABEL" class="form-control mr-sm-2 col-xl-8" placeholder="PLACEHOLDER"
+            th:disabled="${search.getDisabled()}"
+            th:field="${search.getSearchTerm()}"
+            type="search">
+            <button class="btn btn-outline-success my-2 my-sm-0"
+                    th:disabled="${search.getDisabled()}" type="submit">
+                <span th:text="${search.getTextSearch()}"></span>
+            </button>
+            -->
+
+            <span th:text="${search}"></span>
+        </nav>
+    </form>
+</nav>

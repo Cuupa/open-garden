@@ -1,5 +1,7 @@
 package com.cuupa.opengarden.pojo
 
+import com.cuupa.opengarden.Light
+
 class Plant {
 
     var name: String? = null
@@ -8,11 +10,11 @@ class Plant {
     var family: String? = null
     var genus: String? = null
     var species: String? = null
-    var light: String? = null
-    var spread: String? = null
-    var rowSpacing: String? = null
-    var height: String? = null
-    var minGarminateTemperature: String? = null
+    var light: Light? = null
+    var spread: Float? = null
+    var rowSpacing: Float? = null
+    var height: Float? = null
+    var minGarminateTemperature: Float? = null
     var crossPolination: Boolean? = null
     var minGarminationTime: Int? = null
     var maxGarminationTime: Int? = null
@@ -20,9 +22,13 @@ class Plant {
     var minTemperaturePeriod: Float? = null
     var minIdealTemperature: Float? = null
     var maxIdealTemperature: Float? = null
-    var minTemperatureFruitDevelopment: Float? = null
-    var maxTemperatureFruitDevelopment: Float? = null
+    var minTemperatureFruitDevelopmentDay: Float? = null
+    var maxTemperatureFruitDevelopmentDay: Float? = null
+    var minTemperatureFruitDevelopmentNight: Float? = null
+    var maxTemperatureFruitDevelopmentNight: Float? = null
     var frostResistent: Boolean? = null
 
-
+    override fun toString(): String {
+        return "Plant(name=$name, bionomalName=$bionomalName, order=$order, family=$family, genus=$genus, species=$species, light=$light, spread=$spread, rowSpacing=$rowSpacing, height=$height, minGarminateTemperature=$minGarminateTemperature, crossPolination=$crossPolination, minGarminationTime=$minGarminationTime, maxGarminationTime=$maxGarminationTime, minTemperatureSingle=$minTemperatureSingle, minTemperaturePeriod=$minTemperaturePeriod, minIdealTemperature=$minIdealTemperature, maxIdealTemperature=$maxIdealTemperature, minTemperatureFruitDevelopmentDay=$minTemperatureFruitDevelopmentDay, maxTemperatureFruitDevelopmentDay=$maxTemperatureFruitDevelopmentDay, minTemperatureFruitDevelopmentNight=$minTemperatureFruitDevelopmentNight, maxTemperatureFruitDevelopmentNight=$maxTemperatureFruitDevelopmentNight, frostResistent=$frostResistent)"
+    }
 }

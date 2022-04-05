@@ -12,14 +12,16 @@ import java.util.*
  * @author Simon Thiel (https://github.com/cuupa)
  */
 @Controller
-class UIController {
+class UIController(val database: PlantDatabase) {
 
     @GetMapping("/")
     fun index(): ModelAndView {
-        return ModelAndView("index")
+        return ModelAndView("index").apply {
+            addObject("search", Search())
+        }
     }
 
-    @PostMapping("/")
+    @PostMapping("/search")
     fun search(@ModelAttribute searchTerm: String): ModelAndView {
         val result: Optional<Plant> = database.find(searchTerm)
         val modelAndView = ModelAndView("search")
@@ -31,6 +33,8 @@ class UIController {
             modelAndView.addObject("success", true)
             modelAndView.addObject("plant", result.get())
         }
+
+        modelAndView.addObject("search", Search())
 
         return modelAndView
     }

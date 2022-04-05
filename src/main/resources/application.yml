@@ -1,0 +1,4 @@
+
+application.name: "OpenGarden"
+server:
+  port: 8080
