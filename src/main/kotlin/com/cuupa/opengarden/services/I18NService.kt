@@ -1,5 +1,9 @@
 package com.cuupa.opengarden.services
 
+import java.text.MessageFormat
+import java.util.*
+
+
 class I18NService {
     val values = mapOf(
         "name_text" to "Name",
@@ -26,8 +30,30 @@ class I18NService {
     )
 
     fun get(s: String) = values.getOrDefault(s, "NOT FOUND")
-    fun get(s: Array<? extends Enum>): String {
+    fun get(s: List<String>) = s.map { values.getOrDefault(it, "NOT FOUND") }
 
+    private var bundle: ResourceBundle? = null
+
+    fun getLocale() = Locale.getDefault()
+
+    fun isSupported(l: Locale) = Locale.getAvailableLocales().contains(l)
+
+    fun setLocale(l: Locale?) {
+        Locale.setDefault(l)
     }
 
+    private fun getMessage(key: String): String {
+        if (bundle == null) {
+            bundle = ResourceBundle.getBundle(MESSAGES_KEY)
+        }
+        return bundle!!.getString(key)
+    }
+
+    fun getMessage(key: String, vararg arguments: Any?): String? {
+        return MessageFormat.format(getMessage(key), *arguments)
+    }
+
+    companion object {
+        private const val MESSAGES_KEY = "messages"
+    }
 }
