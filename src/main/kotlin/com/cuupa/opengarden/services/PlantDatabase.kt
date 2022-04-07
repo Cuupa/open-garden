@@ -1,6 +1,6 @@
 package com.cuupa.opengarden.services
 
-import com.cuupa.opengarden.pojo.Plant
+import com.cuupa.opengarden.pojos.Plant
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import java.nio.file.Files

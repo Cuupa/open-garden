@@ -12,17 +12,12 @@
 <div th:include="fragments/header" class="align-top"></div>
 <div class="container">
 
-    <div id="logo" aria-label="sprout">
-        <img th:src="@{/images/sprout.svg}"
-        class="mx-auto d-block align-middle"
-        style="width: 25%; height: 25%">
+    <div th:if="${message != null}">
+        <div class="alert alert-danger align-content-center">
+            <span th:utext="${message}"></span>
+        </div>
     </div>
-
-    <div id="motivation" class="text-center">
-        <span th:text="${text}" style="color: #c4c4c4"></span>
-    </div>
-
 </div>
-<div th:insert="fragments/footer" style="position: absolute;bottom: 0; width: 100%"></div>
+<div th:insert="fragments/footer" class="mt-auto"></div>
 </body>
 </html>

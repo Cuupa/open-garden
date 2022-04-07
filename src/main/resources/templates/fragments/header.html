@@ -1,0 +1,30 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand ms-2" href="/">
+        <span th:text="${@environment.getProperty('application.name')}"
+              style="font-family: Consolas, serif;"></span>
+    </a>
+
+    <div>
+        <img th:src="@{/images/account-circle.svg}"
+             class="mx-auto d-block">
+    </div>
+
+    <form class="row" th:action="@{/search}" method="post" th:object="${search}">
+        <div class="col-auto">
+            <input class="form-control mr-sm-2"
+                   type="search"
+                   th:placeholder="${search.getPlaceholder()}"
+                   aria-label="Search"
+                   th:disabled="${search.getDisabled()}"
+                   th:field="${search.searchTerm}">
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-outline-success my-2 my-sm-0"
+                    type="submit"
+                    th:disabled="${search.getDisabled()}">
+                <span th:text="${search.getTextSearch()}"></span>
+            </button>
+        </div>
+        <div class="col-auto"></div>
+    </form>
+</nav>

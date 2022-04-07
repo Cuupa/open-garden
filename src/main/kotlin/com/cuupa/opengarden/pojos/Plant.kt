@@ -1,4 +1,4 @@
-package com.cuupa.opengarden.pojo
+package com.cuupa.opengarden.pojos
 
 import com.cuupa.opengarden.Light
 

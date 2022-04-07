@@ -1,10 +1,9 @@
 import com.cuupa.opengarden.Light
-import com.cuupa.opengarden.pojo.Plant
+import com.cuupa.opengarden.pojos.Plant
 import com.google.gson.GsonBuilder
 import org.junit.jupiter.api.Test
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
-import java.nio.file.OpenOption
 import java.nio.file.Path
 import java.nio.file.StandardOpenOption
 
@@ -17,7 +16,8 @@ class DatabaseBuilder {
     fun fillVegetable() {
         val target = Path.of("data/vegetable.json")
 
-        val plants = listOf(Plant().apply {
+        val plants = listOf(
+            Plant().apply {
             name = "Tomato"
             bionomalName = "Solanum lycopersicum"
             order = "Solanales"

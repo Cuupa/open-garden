@@ -9,7 +9,7 @@
 
 <body>
 
-<div th:include="fragments/searchbar" class="align-top"></div>
+<div th:include="fragments/header" class="align-top"></div>
 <div class="container">
     <table class="table">
         <tbody>
@@ -98,7 +98,7 @@
 
         </tbody>
     </table>
-    <div th:insert="fragments/footer" style="position: absolute;bottom: 0; width: 100%"></div>
 </div>
+<div th:insert="fragments/footer" class="mt-auto"></div>
 </body>
 </html>

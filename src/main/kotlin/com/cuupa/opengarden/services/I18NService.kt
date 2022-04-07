@@ -21,8 +21,13 @@ class I18NService {
         "maxTemperatureFruitDevelopmentNight_text" to "Maximal nighttime temperature for fruit development",
         "frostResistent_text" to "Frost resitent",
         "crossPolination_text" to "Cross polination possible",
+        "index-logo-text" to "Search for a plant or login to manage your fields and crops",
+        "has-no-fields" to "You don't have any fields yet. Start by <a href='/fields/add'>creating</a> one."
     )
 
     fun get(s: String) = values.getOrDefault(s, "NOT FOUND")
+    fun get(s: Array<? extends Enum>): String {
+
+    }
 
 }

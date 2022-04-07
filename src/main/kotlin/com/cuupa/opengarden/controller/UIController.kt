@@ -1,7 +1,7 @@
 package com.cuupa.opengarden.controller
 
 import com.cuupa.opengarden.Search
-import com.cuupa.opengarden.pojo.Plant
+import com.cuupa.opengarden.pojos.Plant
 import com.cuupa.opengarden.services.I18NService
 import com.cuupa.opengarden.services.PlantDatabase
 import org.springframework.stereotype.Controller
@@ -28,6 +28,7 @@ class UIController(val database: PlantDatabase, val i18n: I18NService) {
     fun index(): ModelAndView {
         return ModelAndView("index").apply {
             addObject("search", Search())
+            addObject("text", i18n.get("index-logo-text"))
         }
     }
 
@@ -37,20 +38,20 @@ class UIController(val database: PlantDatabase, val i18n: I18NService) {
         val modelAndView = ModelAndView()
 
         if (result.isEmpty) {
-            modelAndView.viewName = "search"
+            modelAndView.viewName = "index"
             modelAndView.addObject("success", false)
-            modelAndView.addObject("message", "No plant found for search '${search?.searchTerm}'")
+            modelAndView.addObject("text", "No plant found for search '${search?.searchTerm}'")
         } else {
             modelAndView.viewName = "redirect:/crop/${result.get().bionomalName}"
         }
 
-        modelAndView.addObject("search", Search())
+        modelAndView.addObject("search", Search().apply { searchTerm = search?.searchTerm ?: null })
         return modelAndView
     }
 
     @GetMapping("/crop/{name}")
     fun crop(@PathVariable name: String?): ModelAndView {
-        val result: Optional<Plant> = database.find(name?:"")
+        val result: Optional<Plant> = database.find(name ?: "")
         val modelAndView = ModelAndView("crop")
 
         if (result.isEmpty) {

@@ -1,4 +1,4 @@
-package com.cuupa.opengarden
+package com.cuupa.opengarden.configuration
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -7,7 +7,7 @@ import org.springframework.boot.runApplication
  * @author Simon Thiel (https://github.com/cuupa)
  */
 @SpringBootApplication
-open class SpringBootOpenGardenApplication {
+class SpringBootOpenGardenApplication {
 
     companion object {
         @JvmStatic
