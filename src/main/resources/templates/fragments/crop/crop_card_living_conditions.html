@@ -1,0 +1,121 @@
+
+<div class="row">
+    <div class="col-md-auto">
+        <div th:switch="${plant.light_ordinal}">
+            <div th:case="0">
+                <div class="sun"></div>
+            </div>
+        </div>
+        <small class="text-muted">
+            <span th:text="${plant.light}"></span>
+        </small>
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-auto">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/thermometer-chevron-down.svg}">
+                <span th:text="${plant.minTemperatureSingle}"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${minTemperatureSingle_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-auto">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/thermometer-chevron-down.svg}">
+                <span th:text="${plant.minTemperaturePeriod}"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${minTemperaturePeriod_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-auto">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/thermometer-chevron-down.svg}">
+                <span th:text="${plant.minIdealTemperature}"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${minIdealTemperature_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-auto">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/thermometer-chevron-up.svg}">
+                <span th:text="${plant.maxIdealTemperature}"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${maxIdealTemperature_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-auto">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/snowflake-thermometer.svg}">
+                <span th:text="${plant.frostResistent}"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${frostResistent_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-auto">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/dna.svg}">
+                <span th:text="${plant.crossPolination}"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${crossPolination_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>

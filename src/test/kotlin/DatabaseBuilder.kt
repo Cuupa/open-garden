@@ -8,7 +8,7 @@ import java.nio.file.Path
 import java.nio.file.StandardOpenOption
 
 /**
- * @author Simon Thiel (https=//github.com/cuupa)
+ * @author Simon Thiel (https://github.com/cuupa)
  */
 class DatabaseBuilder {
 

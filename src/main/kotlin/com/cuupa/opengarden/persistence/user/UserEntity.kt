@@ -3,6 +3,7 @@ package com.cuupa.opengarden.persistence.user
 import javax.persistence.*
 
 @Entity
+@Table(name = "users")
 open class UserEntity {
 
     @Id

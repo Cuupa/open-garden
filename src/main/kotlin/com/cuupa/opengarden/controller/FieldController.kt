@@ -19,7 +19,7 @@ class FieldController(val fieldsDB: FieldDatabase, val i18n: I18NService) {
         return ModelAndView("fields").apply {
             addObject("search", Search())
             if(fields.isEmpty()){
-                addObject("message", i18n.get("has-no-fields"))
+                addObject("message", i18n.getMessage("has-no-fields"))
             } else {
                 addObject("fields", fields)
             }
@@ -30,11 +30,13 @@ class FieldController(val fieldsDB: FieldDatabase, val i18n: I18NService) {
     fun addFields(): ModelAndView {
         return ModelAndView("fields_add").apply {
             addObject("search", Search())
-            addObject("textName", i18n.get("fields-add-name"))
+            addObject("textName", i18n.getMessage("fields-add-name"))
+            addObject("textLength", i18n.getMessage("length"))
+            addObject("textWidth", i18n.getMessage("width"))
             addObject("field", Field())
 
            val fieldTypes = FieldType.values().map { it.name }
-            addObject("fieldTypeList", i18n.get(fieldTypes))
+            addObject("fieldTypeList", i18n.getMessage(fieldTypes))
         }
     }
 }

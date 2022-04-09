@@ -1,0 +1,22 @@
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 300px;
+}
+
+.sun {
+    display: inline-block;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background: orange;
+    box-shadow: 0 0 2px orange,
+    0 0 15px orange,
+    0 0 50px yellow,
+    inset 0 0 20px yellow;
+    z-index: 12;
+    align: center;
+    z-index: -99;
+}

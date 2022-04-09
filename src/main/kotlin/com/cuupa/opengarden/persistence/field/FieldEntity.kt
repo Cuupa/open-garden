@@ -4,6 +4,7 @@ import com.cuupa.opengarden.persistence.user.UserEntity
 import javax.persistence.*
 
 @Entity
+@Table(name = "field")
 open class FieldEntity {
 
     @Id

@@ -1,0 +1,146 @@
+<!--/*@thymesVar id="plant" type="com.cuupa.opengarden.displayobjects.PlantDO"*/-->
+
+<div class="row">
+    <div class="col-md-auto">
+        <select th:field="${plant.light}"
+                id="type">
+            <option th:each="type : ${light_types}"
+                    th:value="${type}" th:text="${type}"></option>
+        </select>
+        <small class="text-muted">
+            <span th:text="${plant.light}"></span>
+        </small>
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-auto">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/thermometer-chevron-down.svg}">
+                <input class="form-control mr-sm-2"
+                       type="number"
+                       th:placeholder="${minTemperatureSingle_text}"
+                       aria-label="Name"
+                       th:field="${plant.minTemperatureSingle}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${minTemperatureSingle_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-auto">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/thermometer-chevron-down.svg}">
+                <input class="form-control mr-sm-2"
+                       type="number"
+                       th:placeholder="${minTemperaturePeriod_text}"
+                       aria-label="Name"
+                       th:field="${plant.minTemperaturePeriod}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${minTemperaturePeriod_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-auto">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/thermometer-chevron-down.svg}">
+                <input class="form-control mr-sm-2"
+                       type="number"
+                       th:placeholder="${minIdealTemperature_text}"
+                       aria-label="Name"
+                       th:field="${plant.minIdealTemperature}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${minIdealTemperature_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-auto">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/thermometer-chevron-up.svg}">
+                <input class="form-control mr-sm-2"
+                       type="number"
+                       th:placeholder="${maxIdealTemperature_text}"
+                       aria-label="Name"
+                       th:field="${plant.maxIdealTemperature}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${maxIdealTemperature_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-auto">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/snowflake-thermometer.svg}">
+                <input class="form-control mr-sm-2"
+                       type="checkbox"
+                       aria-label="Name"
+                       value="false"
+                       th:field="${plant.frostResistent}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${frostResistent_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-auto">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/dna.svg}">
+                <input class="form-control mr-sm-2"
+                       type="checkbox"
+                       aria-label="Name"
+                       value="false"
+                       th:field="${plant.crossPolination}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${crossPolination_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>

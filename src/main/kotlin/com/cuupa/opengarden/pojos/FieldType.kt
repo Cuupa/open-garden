@@ -9,10 +9,6 @@ enum class FieldType(val value: Int) {
     GROW_BED_OPEN(3),
     GROW_BED_ROOFED(4);
 
-    inline fun <reified T : Enum<T>> printAllValues() {
-        print(enumValues<T>().joinToString { it.name })
-    }
-
     companion object {
         fun fromValue(value: Int) = when (value) {
             0 -> UNDEFINED

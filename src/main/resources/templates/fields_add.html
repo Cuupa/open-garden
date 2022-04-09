@@ -12,29 +12,43 @@
 <div th:include="fragments/header" class="align-top"></div>
 <div class="container">
 
-    <!--/*@thymesVar id="field" type="com.cuupa.opengarden.pojos.Field"*/-->
-    <form th:action="@{/fields/add}" method="post" th:object="${field}">
-        <div>
-            <input class="form-control mr-sm-2"
-                   type="text"
-                   th:placeholder="${textName}"
-                   aria-label="Name"
-                   th:field="${field.name}">
+    <div class="row justify-content-center align-items-center" style="margin-top: 30px;">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <!--/*@thymesVar id="field" type="com.cuupa.opengarden.pojos.Field"*/-->
+            <form th:action="@{/fields/add}" method="post" th:object="${field}">
+                <label for="name"></label>
+                <input class="form-control mr-sm-2"
+                       type="text"
+                       th:placeholder="${textName}"
+                       aria-label="Name"
+                       th:field="${field.name}"
+                       id="name">
 
-            <select th:field="${field.fieldType}">
-                <option th:each="type : ${fieldTypeList}"
-                        th:value="${type}" th:text="${type}"></option>
-            </select>
+                <label for="type"></label>
+                <select th:field="${field.fieldType}"
+                        id="type">
+                    <option th:each="type : ${fieldTypeList}"
+                            th:value="${type}" th:text="${type}"></option>
+                </select>
 
-            <input class="form-control mr-sm-2"
-                   type="text"
-                   th:placeholder="${textName}"
-                   aria-label="Name"
-                   th:field="${field.name}">
+                <label for="length"></label>
+                <input class="form-control mr-sm-2"
+                       type="number"
+                       th:placeholder="${textlength}"
+                       aria-label="length"
+                       th:field="${field.length}"
+                       id="length">
+
+                <label for="width"></label>
+                <input class="form-control mr-sm-2"
+                       id="width"
+                       type="number"
+                       th:placeholder="${textWidth}"
+                       aria-label="Width"
+                       th:field="${field.width}">
+            </form>
         </div>
-        <div>
-
-        </div>
+    </div>
 </div>
 <div th:insert="fragments/footer" class="mt-auto"></div>
 </body>
