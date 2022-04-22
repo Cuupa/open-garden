@@ -1,6 +1,6 @@
 application:
   name: "OpenGarden"
-  geodata.apikey: "c7cf77bade7747d9a8cb3cdd48d965bf"
+  geodata.apikey:
 server:
   port: 8080
 
