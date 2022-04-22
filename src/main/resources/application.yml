@@ -1,16 +1,11 @@
 application:
   name: "OpenGarden"
   geodata.apikey:
+
 server:
   port: 8080
 
 spring:
-  thymeleaf: # Thymeleaf
-    cache: false
+  thymeleaf:
     mode: HTML
     encoding: UTF-8
-    prefix: file:src/main/resources/templates/
-  resources: # Static resources
-    static-locations: file:src/main/resources/static/
-    cache:
-      period: 0
