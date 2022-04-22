@@ -21,6 +21,7 @@ class CropController(
     private val doTranslateService: DOTranslateservice,
     private val weatherService: WeatherService,
     private val cookieService: CookieService,
+    private val plantDatabase: PlantDatabase
 ) {
 
     @PostMapping("/search")
@@ -39,7 +40,7 @@ class CropController(
             modelAndView.viewName = "redirect:/crop/${result.get().bionomalName}"
         }
 
-        modelAndView.addObject("search", Search().apply { searchTerm = search?.searchTerm })
+        modelAndView.addObject("search", Search(placeholder = plantDatabase.getRandomPlantName(), searchTerm = search?.searchTerm))
         modelAndView.addObject("weather", doTranslateService.translate(weather))
         return modelAndView
     }
@@ -50,20 +51,19 @@ class CropController(
         val weather = weatherService.loadWeather(coordinates)
 
         val result: Optional<Plant> = database.find(name ?: "")
-        val modelAndView = ModelAndView("crop/crop")
+        return ModelAndView("crop/crop").apply {
+            if (result.isEmpty) {
+                addObject("success", false)
+                addObject("message", "No plant found for search '${name}'")
+            } else {
+                addObject("success", true)
+                addObject("plant", doTranslateService.translate(result.get()))
+                fillTexts()
+            }
 
-        if (result.isEmpty) {
-            modelAndView.addObject("success", false)
-            modelAndView.addObject("message", "No plant found for search '${name}'")
-        } else {
-            modelAndView.addObject("success", true)
-            modelAndView.addObject("plant", doTranslateService.translate(result.get()))
-            modelAndView.fillTexts()
+            addObject("search", Search(placeholder = plantDatabase.getRandomPlantName(), searchTerm = name))
+            addObject("weather", doTranslateService.translate(weather))
         }
-
-        modelAndView.addObject("search", Search())
-        modelAndView.addObject("weather", doTranslateService.translate(weather))
-        return modelAndView
     }
 
     @GetMapping("/crop/add")
@@ -72,7 +72,7 @@ class CropController(
         val weather = weatherService.loadWeather(coordinates)
         return ModelAndView("crop/crop_add").apply {
             addObject("plant", PlantDO())
-            addObject("search", Search())
+            addObject("search", Search(placeholder = plantDatabase.getRandomPlantName()))
             addObject("weather", doTranslateService.translate(weather))
             fillTexts()
         }

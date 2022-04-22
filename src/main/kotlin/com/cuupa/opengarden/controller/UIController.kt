@@ -1,13 +1,8 @@
 package com.cuupa.opengarden.controller
 
 import com.cuupa.opengarden.Search
-import com.cuupa.opengarden.services.CookieService
-import com.cuupa.opengarden.services.DOTranslateservice
-import com.cuupa.opengarden.services.I18NService
-import com.cuupa.opengarden.services.WeatherService
-import com.cuupa.opengarden.services.geolocation.Coordinates
+import com.cuupa.opengarden.services.*
 import org.apache.commons.logging.LogFactory
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.servlet.ModelAndView
@@ -23,7 +18,8 @@ class UIController(
     private val i18n: I18NService,
     private val cookieService: CookieService,
     private val weatherService: WeatherService,
-    private val doTranslateService: DOTranslateservice
+    private val doTranslateService: DOTranslateservice,
+    private val plantDatabase: PlantDatabase
 ) {
 
     @PostConstruct
@@ -37,7 +33,7 @@ class UIController(
         val weather = weatherService.loadWeather(coordinates)
 
         return ModelAndView("index").apply {
-            addObject("search", Search())
+            addObject("search", Search(placeholder = plantDatabase.getRandomPlantName()))
             addObject("text", i18n.getMessage("index-logo-text"))
             addObject("weather", doTranslateService.translate(weather))
         }
