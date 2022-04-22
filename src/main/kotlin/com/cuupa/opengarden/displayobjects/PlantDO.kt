@@ -24,6 +24,13 @@ data class PlantDO(
     var maxTemperatureFruitDevelopmentDay: String = "",
     var minTemperatureFruitDevelopmentNight: String = "",
     var maxTemperatureFruitDevelopmentNight: String = "",
-    var frostResistent: String = ""
+    var frostResistent: String = "",
+    var climbingAid: String = "",
+    var waterRequirement: String = "",
+    val waterRequirement_ordinal: Int = -1,
+    var waterSoil: String = "",
+    var waterSoilBoolean: Boolean = true,
+    var waterleafs: String = "",
+    var waterleafsBoolean: Boolean = false
 ) {
 }

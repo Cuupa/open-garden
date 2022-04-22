@@ -24,7 +24,11 @@
     "maxTemperatureFruitDevelopmentDay": 32.0,
     "minTemperatureFruitDevelopmentNight": 13.0,
     "maxTemperatureFruitDevelopmentNight": 24.0,
-    "frostResistent": false
+    "frostResistent": false,
+    "climbingAid": true,
+    "waterRequirements": "VERY_HIGH",
+    "waterSoil": true,
+    "waterleafs": false
   },
   {
     "name": "Tree pepper",

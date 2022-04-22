@@ -1,6 +1,7 @@
 package com.cuupa.opengarden.pojos
 
 import com.cuupa.opengarden.Light
+import com.cuupa.opengarden.displayobjects.PlantDO
 
 data class Plant(
     var name: String? = null,
@@ -25,5 +26,9 @@ data class Plant(
     var maxTemperatureFruitDevelopmentDay: Float? = null,
     var minTemperatureFruitDevelopmentNight: Float? = null,
     var maxTemperatureFruitDevelopmentNight: Float? = null,
-    var frostResistent: Boolean? = null
+    var frostResistent: Boolean? = null,
+    var climbingAid: Boolean? = null,
+    var waterRequirements: WaterRequirement? = null,
+    var waterSoil: Boolean? = null,
+    var waterleafs: Boolean? = null
 )

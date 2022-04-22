@@ -1,6 +1,5 @@
-
 <div class="row">
-    <div class="col-md-auto">
+    <div class="col-md">
         <div th:switch="${plant.light_ordinal}">
             <div th:case="0">
                 <div class="sun"></div>
@@ -10,12 +9,99 @@
             <span th:text="${plant.light}"></span>
         </small>
     </div>
+
+    <div class="col-md">
+        <div class="row">
+            <div class="col-md-auto">
+                <div th:switch="${plant.waterRequirement_ordinal}">
+                    <div th:case="0">
+                        <img th:src="@{/images/water_outline.svg}">
+                        <span th:text="${plant.waterRequirement}"></span>
+                    </div>
+                    <div th:case="1">
+                        <img th:src="@{/images/water.svg}">
+                        <span th:text="${plant.waterRequirement}"></span>
+                    </div>
+                    <div th:case="2">
+                        <img th:src="@{/images/water.svg}">
+                        <img th:src="@{/images/water.svg}">
+                        <span th:text="${plant.waterRequirement}"></span>
+                    </div>
+                    <div th:case="3">
+                        <img th:src="@{/images/water.svg}">
+                        <img th:src="@{/images/water.svg}">
+                        <img th:src="@{/images/water.svg}">
+                        <span th:text="${plant.waterRequirement}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-auto">
+                    <small class="text-muted">
+                        <span th:text="${waterRequirement_text}"></span>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="row">
+            <div class="col-md-auto">
+                <div th:switch="${plant.waterSoilBoolean}">
+                    <div th:case="true">
+                        <img th:src="@{/images/watering-can.svg}">
+                        <span th:text="${plant.waterSoil}"></span>
+                    </div>
+                    <div th:case="false">
+                        <img th:src="@{/images/watering-can.svg}">
+                        <span th:text="${plant.waterSoil}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-auto">
+                    <small class="text-muted">
+                        <span th:text="${waterSoil_text}"></span>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md">
+        <div class="row">
+            <div class="col-md-auto">
+                <div th:switch="${plant.waterleafsBoolean}">
+                    <div th:case="true">
+                        <img th:src="@{/images/leaf.svg}">
+                        <span th:text="${plant.waterleafs}"></span>
+                    </div>
+                    <div th:case="false">
+                        <img th:src="@{/images/leaf_off.svg}">
+                        <span th:text="${plant.waterleafs}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-auto">
+                    <small class="text-muted">
+                        <span th:text="${waterleafs_text}"></span>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <br/>
 
 <div class="row">
-    <div class="col-md-auto">
+    <div class="col-md">
         <div class="row">
             <div class="col-md-auto">
                 <img th:src="@{/images/thermometer-chevron-down.svg}">
@@ -31,7 +117,7 @@
         </div>
     </div>
 
-    <div class="col-md-auto">
+    <div class="col-md">
         <div class="row">
             <div class="col-md-auto">
                 <img th:src="@{/images/thermometer-chevron-down.svg}">
@@ -51,7 +137,7 @@
 <br/>
 
 <div class="row">
-    <div class="col-md-auto">
+    <div class="col-md">
         <div class="row">
             <div class="col-md-auto">
                 <img th:src="@{/images/thermometer-chevron-down.svg}">
@@ -67,7 +153,7 @@
         </div>
     </div>
 
-    <div class="col-md-auto">
+    <div class="col-md">
         <div class="row">
             <div class="col-md-auto">
                 <img th:src="@{/images/thermometer-chevron-up.svg}">
@@ -87,7 +173,7 @@
 <br/>
 
 <div class="row">
-    <div class="col-md-auto">
+    <div class="col-md">
         <div class="row">
             <div class="col-md-auto">
                 <img th:src="@{/images/snowflake-thermometer.svg}">
@@ -103,7 +189,7 @@
         </div>
     </div>
 
-    <div class="col-md-auto">
+    <div class="col-md">
         <div class="row">
             <div class="col-md-auto">
                 <img th:src="@{/images/dna.svg}">

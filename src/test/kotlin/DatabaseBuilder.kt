@@ -1,5 +1,6 @@
 import com.cuupa.opengarden.Light
 import com.cuupa.opengarden.pojos.Plant
+import com.cuupa.opengarden.pojos.WaterRequirement
 import com.google.gson.GsonBuilder
 import org.junit.jupiter.api.Test
 import java.nio.charset.StandardCharsets
@@ -14,34 +15,38 @@ class DatabaseBuilder {
 
     @Test
     fun fillVegetable() {
-        val target = Path.of("data/vegetable.json")
+        val target = Path.of("data/vegetables.json")
 
         val plants = listOf(
             Plant().apply {
-            name = "Tomato"
-            bionomalName = "Solanum lycopersicum"
-            order = "Solanales"
-            family = "Solanacae"
-            genus = "Solanum"
-            species = "S. lycopersicum"
-            light = Light.FULL_SUN
-            spread = 90F
-            rowSpacing = 90F
-            height = 180F
-            minGarminationTemperature = 15F
-            crossPolination = false
-            minGarminationTime = -1
-            maxGarminationTime = -1
-            minTemperatureSingle = 13.5F
-            minTemperaturePeriod = 15F
-            minIdealTemperature = 20F
-            maxIdealTemperature = 25F
-            minTemperatureFruitDevelopmentDay = null
-            maxTemperatureFruitDevelopmentDay = 32F
-            minTemperatureFruitDevelopmentNight = 13F
-            maxTemperatureFruitDevelopmentNight = 24F
-            frostResistent = false
-        },
+                name = "Tomato"
+                bionomalName = "Solanum lycopersicum"
+                order = "Solanales"
+                family = "Solanacae"
+                genus = "Solanum"
+                species = "S. lycopersicum"
+                light = Light.FULL_SUN
+                spread = 90F
+                rowSpacing = 90F
+                height = 180F
+                minGarminationTemperature = 15F
+                crossPolination = false
+                minGarminationTime = -1
+                maxGarminationTime = -1
+                minTemperatureSingle = 13.5F
+                minTemperaturePeriod = 15F
+                minIdealTemperature = 20F
+                maxIdealTemperature = 25F
+                minTemperatureFruitDevelopmentDay = null
+                maxTemperatureFruitDevelopmentDay = 32F
+                minTemperatureFruitDevelopmentNight = 13F
+                maxTemperatureFruitDevelopmentNight = 24F
+                frostResistent = false
+                climbingAid = true
+                waterRequirements = WaterRequirement.VERY_HIGH
+                waterSoil = true
+                waterleafs = false
+            },
             Plant().apply {
                 name = "Tree pepper"
                 bionomalName = "Capsicum pubescens"

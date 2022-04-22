@@ -1,6 +1,7 @@
 package com.cuupa.opengarden.configuration
 
 import com.cuupa.opengarden.persistence.field.FieldRepository
+import com.cuupa.opengarden.services.DOTranslateservice
 import com.cuupa.opengarden.services.FieldDatabase
 import com.cuupa.opengarden.services.I18NService
 import com.cuupa.opengarden.services.PlantDatabase
@@ -22,4 +23,7 @@ class ServiceConfiguration {
 
     @Bean
     fun i18n() = I18NService()
+
+    @Bean
+    fun doTranslateService(i18NService: I18NService) = DOTranslateservice(i18NService)
 }

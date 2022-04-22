@@ -1,7 +1,101 @@
-<img th:src="@{/images/thermometer-chevron-down.svg}">
-<span th:text="${plant.minGarminationTemperature}"></span>
+<div class="row">
+    <div class="col-md">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/diameter.svg}">
+                <span th:text="${plant.spread}"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${spread_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/arrow-expand.svg}">
+                <span th:text="${plant.rowSpacing}"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${rowSpacing_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/arrow-up-down.svg}">
+                <span th:text="${plant.height}"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${height_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br/>
-<small class="text-muted">
-    <span th:text="${minGarminationTemperature_text}"></span>
-</small>
+
+<div class="row">
+    <div class="col-md">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/diameter.svg}">
+                <span th:text="${plant.minGarminationTemperature}"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${minGarminationTemperature_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/arrow-expand.svg}">
+                <span th:text="${plant.minGarminationTime}"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${minGarminationTime_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md">
+        <div class="row">
+            <div class="col-md-auto">
+                <img th:src="@{/images/arrow-up-down.svg}">
+                <span th:text="${plant.maxGarminationTime}"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <small class="text-muted">
+                    <span th:text="${maxGarminationTime_text}"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
