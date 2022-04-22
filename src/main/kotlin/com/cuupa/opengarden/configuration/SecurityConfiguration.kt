@@ -28,6 +28,7 @@ class SecurityConfiguration : WebSecurityConfigurerAdapter() {
             .antMatchers("/js/**").permitAll()
             .antMatchers("/images/**").permitAll()
             .antMatchers("/api/**").permitAll()
+            .antMatchers("/start/**").permitAll()
             .antMatchers("/fields").permitAll()//.hasAnyRole("USER", "ADMIN")
             .antMatchers("/fields/**").permitAll()//.hasAnyRole("USER", "ADMIN")
             .anyRequest().authenticated()

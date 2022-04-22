@@ -1,10 +1,19 @@
 package com.cuupa.opengarden.services
 
 import com.cuupa.opengarden.displayobjects.PlantDO
+import com.cuupa.opengarden.displayobjects.WeatherDO
 import com.cuupa.opengarden.pojos.Plant
 import com.cuupa.opengarden.pojos.WaterRequirement
+import com.cuupa.opengarden.services.weather.Weather
 
-class DOTranslateservice(val i18n: I18NService) {
+class DOTranslateservice(private val i18n: I18NService) {
+
+    fun translate(weather: Weather): WeatherDO {
+        return WeatherDO(
+            condition = weather.condition?.value ?: 0,
+            humidity = "",
+            temperature = getFloatDisplayValue(weather.temperature, unit = celcius))
+    }
 
     fun translate(plant: Plant): PlantDO {
         return PlantDO(
@@ -57,12 +66,12 @@ class DOTranslateservice(val i18n: I18NService) {
             waterRequirement_ordinal = plant.waterRequirements?.value ?: -1,
             waterSoil = getWaterSoilDisplayValue(plant.waterSoil),
             waterSoilBoolean = plant.waterSoil ?: true,
-            waterleafs = getWaterleafsDisplayValue(plant.waterleafs),
+            waterleafs = getWaterLeafsDisplayValue(plant.waterleafs),
             waterleafsBoolean = plant.waterleafs ?: false
         )
     }
 
-    private fun getWaterleafsDisplayValue(waterleafs: Boolean?): String {
+    private fun getWaterLeafsDisplayValue(waterleafs: Boolean?): String {
         return if (waterleafs == true) {
             i18n.getMessage("water_leafs")
         } else {

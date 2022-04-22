@@ -4,9 +4,7 @@ import com.cuupa.opengarden.Light
 import com.cuupa.opengarden.Search
 import com.cuupa.opengarden.displayobjects.PlantDO
 import com.cuupa.opengarden.pojos.Plant
-import com.cuupa.opengarden.services.DOTranslateservice
-import com.cuupa.opengarden.services.I18NService
-import com.cuupa.opengarden.services.PlantDatabase
+import com.cuupa.opengarden.services.*
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
@@ -14,16 +12,22 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.servlet.ModelAndView
 import java.util.*
+import javax.servlet.http.HttpServletRequest
 
 @Controller
 class CropController(
     private val i18n: I18NService,
     private val database: PlantDatabase,
-    private val doTranslateService: DOTranslateservice
+    private val doTranslateService: DOTranslateservice,
+    private val weatherService: WeatherService,
+    private val cookieService: CookieService,
 ) {
 
     @PostMapping("/search")
-    fun search(@ModelAttribute search: Search?): ModelAndView {
+    fun search(@ModelAttribute search: Search?, req: HttpServletRequest): ModelAndView {
+        val coordinates = cookieService.getCoordinatesFromCookies(req)
+        val weather = weatherService.loadWeather(coordinates)
+
         val result: Optional<Plant> = database.find(search?.searchTerm ?: "")
         val modelAndView = ModelAndView()
 
@@ -36,11 +40,15 @@ class CropController(
         }
 
         modelAndView.addObject("search", Search().apply { searchTerm = search?.searchTerm })
+        modelAndView.addObject("weather", doTranslateService.translate(weather))
         return modelAndView
     }
 
     @GetMapping("/crop/{name}")
-    fun crop(@PathVariable name: String?): ModelAndView {
+    fun crop(@PathVariable name: String?, req: HttpServletRequest): ModelAndView {
+        val coordinates = cookieService.getCoordinatesFromCookies(req)
+        val weather = weatherService.loadWeather(coordinates)
+
         val result: Optional<Plant> = database.find(name ?: "")
         val modelAndView = ModelAndView("crop/crop")
 
@@ -54,14 +62,18 @@ class CropController(
         }
 
         modelAndView.addObject("search", Search())
+        modelAndView.addObject("weather", doTranslateService.translate(weather))
         return modelAndView
     }
 
     @GetMapping("/crop/add")
-    fun add(): ModelAndView {
+    fun add(req: HttpServletRequest): ModelAndView {
+        val coordinates = cookieService.getCoordinatesFromCookies(req)
+        val weather = weatherService.loadWeather(coordinates)
         return ModelAndView("crop/crop_add").apply {
             addObject("plant", PlantDO())
             addObject("search", Search())
+            addObject("weather", doTranslateService.translate(weather))
             fillTexts()
         }
     }

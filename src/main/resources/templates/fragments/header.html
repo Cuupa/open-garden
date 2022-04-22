@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-light justify-content-between">
+<nav class="navbar navbar-light bg-light">
     <img th:src="@{/images/sprout_green.svg}">
     <a class="navbar-brand ms-2" href="/">
         <span th:text="${@environment.getProperty('application.name')}"
@@ -8,6 +8,24 @@
     <div>
         <img th:src="@{/images/account-circle.svg}"
              class="mx-auto d-block">
+    </div>
+
+    <div class="row">
+        <!--/*@thymesVar id="weather" type="com.cuupa.opengarden.displayobjects.WeatherDO"*/-->
+        <div class="col">
+            <span th:text="${weather.temperature}"></span>
+        </div>
+        <div th:switch="${weather.condition}" class="col">
+            <div th:case="6">
+                <img th:src="@{/images/weather-sunny.svg}">
+            </div>
+            <div th:case="5">
+                <img th:src="@{/images/weather-partly-cloudy.svg}">
+            </div>
+            <div th:case="4">
+                <img th:src="@{/images/weather-cloudy.svg}">
+            </div>
+        </div>
     </div>
 
     <form class="row" th:action="@{/search}" method="post" th:object="${search}">
