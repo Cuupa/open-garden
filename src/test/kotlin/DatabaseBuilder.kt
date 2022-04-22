@@ -100,10 +100,6 @@ class DatabaseBuilder {
 
         val gson = GsonBuilder().serializeNulls().create()
 
-        plants.forEach {
-            println(it)
-        }
-
         val json = gson.toJson(plants)
         Files.writeString(target, json, StandardCharsets.UTF_8, StandardOpenOption.CREATE)
     }
