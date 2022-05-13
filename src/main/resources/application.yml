@@ -1,11 +1,17 @@
 application:
   name: "OpenGarden"
   geodata.apikey:
+  datapath: data
 
 server:
   port: 8080
 
 spring:
+  security:
+    user:
+      name: "admin"
+      password: "admin"
+      roles: "admin"
   thymeleaf:
     mode: HTML
     encoding: UTF-8

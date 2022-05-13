@@ -9,6 +9,6 @@ import java.util.*
 
 
 @Configuration
-@Import(value = [ServiceConfiguration::class, DatabaseConfiguration::class, LocaleConfiguration::class])
+@Import(value = [ServiceConfiguration::class, DatabaseConfiguration::class, UserDatabaseConfiguration::class, LocaleConfiguration::class])
 @ComponentScan(basePackages = ["com.cuupa.opengarden"])
 class ApplicationConfiguration

@@ -3,6 +3,7 @@ package com.cuupa.opengarden.configuration
 import com.cuupa.opengarden.persistence.user.UserEntity
 import org.apache.commons.logging.LogFactory
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -14,6 +15,7 @@ import javax.sql.DataSource
 class SecurityConfiguration : WebSecurityConfigurerAdapter() {
 
     @Autowired
+    @Qualifier("user_datasource")
     var dataSource: DataSource? = null
 
     override fun configure(http: HttpSecurity) {
@@ -28,9 +30,8 @@ class SecurityConfiguration : WebSecurityConfigurerAdapter() {
             .antMatchers("/js/**").permitAll()
             .antMatchers("/images/**").permitAll()
             .antMatchers("/api/**").permitAll()
-            .antMatchers("/start/**").permitAll()
-            .antMatchers("/fields").permitAll()//.hasAnyRole("USER", "ADMIN")
-            .antMatchers("/fields/**").permitAll()//.hasAnyRole("USER", "ADMIN")
+            .antMatchers("/register/**").permitAll()
+            .antMatchers("/fields/**").hasAnyRole("USER", "ADMIN")
             .anyRequest().authenticated()
             .and()
             .formLogin()
@@ -66,8 +67,8 @@ class SecurityConfiguration : WebSecurityConfigurerAdapter() {
     companion object {
         private val log = LogFactory.getLog(SecurityConfiguration::class.java)
 
-        private val userQuery =
-            "select username,password,enabled from ${UserEntity::class.java.simpleName} where username = ?"
+        private const val userQuery =
+            "select username,password,enabled from users where username = ?"
 
         private const val authoritiesQuery = "select username,authority from authorities where username = ?"
     }

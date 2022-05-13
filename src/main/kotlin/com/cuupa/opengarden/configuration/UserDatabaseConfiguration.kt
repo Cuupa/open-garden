@@ -14,18 +14,21 @@ import java.io.File
 import java.util.*
 import javax.sql.DataSource
 
+/**
+ * @author Simon Thiel (https://github.com/cuupa)
+ */
 @Configuration
 @EnableJpaRepositories(
-    basePackages = ["com.cuupa.opengarden.persistence.field"],
-    entityManagerFactoryRef = "plant_entityManagerFactory",
-    transactionManagerRef = "plant_transactionManager"
+    basePackages = ["com.cuupa.opengarden.persistence.user"],
+    entityManagerFactoryRef = "user_entityManagerFactory",
+    transactionManagerRef = "user_transactionManager"
 )
-class DatabaseConfiguration {
+class UserDatabaseConfiguration {
 
     @Value("\${application.datapath}")
     private lateinit var datapath: String
 
-    @Bean("plant_datasource")
+    @Bean("user_datasource")
     fun dataSource(): DataSource {
         return DataSourceBuilder.create()
             .driverClassName("org.sqlite.JDBC")
@@ -33,17 +36,17 @@ class DatabaseConfiguration {
             .build()
     }
 
-    @Bean("plant_entityManagerFactory")
-    fun entityManagerFactory(@Qualifier("plant_datasource") dataSource: DataSource): LocalSessionFactoryBean? {
+    @Bean("user_entityManagerFactory")
+    fun entityManagerFactory(@Qualifier("user_datasource") dataSource: DataSource): LocalSessionFactoryBean? {
         return LocalSessionFactoryBean().apply {
             setDataSource(dataSource)
-            setPackagesToScan("com.cuupa.opengarden.persistence.field")
+            setPackagesToScan("com.cuupa.opengarden.persistence.user")
             hibernateProperties = hibernateProperties()
         }
     }
 
-    @Bean("plant_transactionManager")
-    fun dbTransactionManager(@Qualifier("plant_entityManagerFactory") entityManager: LocalSessionFactoryBean): PlatformTransactionManager {
+    @Bean("user_transactionManager")
+    fun dbTransactionManager(@Qualifier("user_entityManagerFactory") entityManager: LocalSessionFactoryBean): PlatformTransactionManager {
         return JpaTransactionManager().apply {
             entityManagerFactory = entityManager.getObject()
         }
@@ -56,5 +59,5 @@ class DatabaseConfiguration {
         }
     }
 
-    private fun getDatabaseName() = "$datapath${File.separator}database.db"
+    private fun getDatabaseName() = "$datapath${File.separator}users.db"
 }

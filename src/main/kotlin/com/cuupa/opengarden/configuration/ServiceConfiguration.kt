@@ -1,6 +1,7 @@
 package com.cuupa.opengarden.configuration
 
 import com.cuupa.opengarden.persistence.field.FieldRepository
+import com.cuupa.opengarden.persistence.user.UserRepository
 import com.cuupa.opengarden.services.*
 import com.cuupa.opengarden.services.weather.AgrarWetterConnector
 import org.springframework.beans.factory.annotation.Autowired
@@ -12,14 +13,15 @@ import org.springframework.context.annotation.Primary
 @Configuration
 class ServiceConfiguration {
 
-    @Autowired
-    var fieldRepository: FieldRepository? = null
 
     @Bean
     fun plantDb(): PlantDatabase = PlantDatabase()
 
     @Bean
-    fun fieldDB(): FieldDatabase = FieldDatabase(fieldRepository)
+    fun fieldDB(fieldRepository: FieldRepository): FieldDatabase = FieldDatabase(fieldRepository)
+
+    @Bean
+    fun userDB(userRepository: UserRepository) = UserDatabase(userRepository)
 
     @Bean
     fun i18n() = I18NService()
