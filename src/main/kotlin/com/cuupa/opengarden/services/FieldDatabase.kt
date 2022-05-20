@@ -1,7 +1,7 @@
 package com.cuupa.opengarden.services
 
 import com.cuupa.opengarden.persistence.field.FieldRepository
-import com.cuupa.opengarden.pojos.Field
+import com.cuupa.opengarden.pojos.field.Field
 
 class FieldDatabase(private val fieldRepository: FieldRepository?) {
 

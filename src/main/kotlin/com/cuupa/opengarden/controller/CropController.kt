@@ -3,7 +3,7 @@ package com.cuupa.opengarden.controller
 import com.cuupa.opengarden.Light
 import com.cuupa.opengarden.Search
 import com.cuupa.opengarden.displayobjects.PlantDO
-import com.cuupa.opengarden.pojos.Plant
+import com.cuupa.opengarden.pojos.field.Plant
 import com.cuupa.opengarden.services.*
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping

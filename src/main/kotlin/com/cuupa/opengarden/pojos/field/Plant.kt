@@ -1,7 +1,6 @@
-package com.cuupa.opengarden.pojos
+package com.cuupa.opengarden.pojos.field
 
 import com.cuupa.opengarden.Light
-import com.cuupa.opengarden.displayobjects.PlantDO
 
 data class Plant(
     var name: String? = null,

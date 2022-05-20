@@ -1,6 +1,5 @@
 package com.cuupa.opengarden.configuration
 
-import com.cuupa.opengarden.displayobjects.RegisterUserDO
 import com.cuupa.opengarden.persistence.user.UserEntity
 import com.cuupa.opengarden.persistence.user.UserRepository
 
@@ -10,13 +9,10 @@ class UserDatabase(private val userRepository: UserRepository) {
         userRepository.findByUsername(name)
     }
 
-    fun userExists(name: String?) = userRepository.findByUsername(name) != null
+    fun userExists(name: String?) = name != null && userRepository.findByUsername(name) != null
 
-    fun save(user: RegisterUserDO) {
-        UserEntity().apply {
-            username = user.username!!
-            password = user.password!!
-        }
+    fun save(user: UserEntity) {
+        userRepository.save(user)
     }
 
 }
