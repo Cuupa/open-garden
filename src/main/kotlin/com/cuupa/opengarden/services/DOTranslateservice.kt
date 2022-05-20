@@ -2,8 +2,8 @@ package com.cuupa.opengarden.services
 
 import com.cuupa.opengarden.displayobjects.PlantDO
 import com.cuupa.opengarden.displayobjects.WeatherDO
-import com.cuupa.opengarden.pojos.Plant
-import com.cuupa.opengarden.pojos.WaterRequirement
+import com.cuupa.opengarden.pojos.field.Plant
+import com.cuupa.opengarden.pojos.field.WaterRequirement
 import com.cuupa.opengarden.services.weather.Weather
 
 class DOTranslateservice(private val i18n: I18NService) {

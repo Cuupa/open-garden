@@ -1,4 +1,4 @@
-package com.cuupa.opengarden.pojos
+package com.cuupa.opengarden.pojos.field
 
 
 enum class FieldType(val value: Int) {

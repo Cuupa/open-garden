@@ -1,6 +1,6 @@
 import com.cuupa.opengarden.Light
-import com.cuupa.opengarden.pojos.Plant
-import com.cuupa.opengarden.pojos.WaterRequirement
+import com.cuupa.opengarden.pojos.field.Plant
+import com.cuupa.opengarden.pojos.field.WaterRequirement
 import com.google.gson.GsonBuilder
 import org.junit.jupiter.api.Test
 import java.nio.charset.StandardCharsets

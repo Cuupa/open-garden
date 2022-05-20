@@ -17,8 +17,7 @@ open class FieldEntity {
     /**
      * UserId of the associated field
      */
-    @OneToOne(fetch = FetchType.LAZY)
-    open var user: UserEntity? = null
+    open var userId: String? = null
 
     @OneToMany(fetch = FetchType.LAZY)
     open var plantPosition = mutableListOf<PlantPositionEntity>()

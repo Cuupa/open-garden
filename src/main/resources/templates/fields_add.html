@@ -14,7 +14,7 @@
 
     <div class="row justify-content-center align-items-center" style="margin-top: 30px;">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-            <!--/*@thymesVar id="field" type="com.cuupa.opengarden.pojos.Field"*/-->
+            <!--/*@thymesVar id="field" type="com.cuupa.opengarden.pojos.field.Field"*/-->
             <form th:action="@{/fields/add}" method="post" th:object="${field}">
                 <label for="name"></label>
                 <input class="form-control mr-sm-2"

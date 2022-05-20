@@ -1,8 +1,8 @@
 package com.cuupa.opengarden.controller
 
 import com.cuupa.opengarden.Search
-import com.cuupa.opengarden.pojos.Field
-import com.cuupa.opengarden.pojos.FieldType
+import com.cuupa.opengarden.pojos.field.Field
+import com.cuupa.opengarden.pojos.field.FieldType
 import com.cuupa.opengarden.services.FieldDatabase
 import com.cuupa.opengarden.services.I18NService
 import org.springframework.security.core.Authentication
