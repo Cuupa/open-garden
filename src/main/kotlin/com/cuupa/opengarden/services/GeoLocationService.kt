@@ -7,6 +7,11 @@ import org.springframework.web.client.RestTemplate
 class GeoLocationService(private val key: String) {
 
     fun getLocation(lat: String, long: String): GeoLocation {
+        if (key.isEmpty()) {
+            log.error("Unable to retrieve location")
+            log.error("No API-Key for opencagedata provided")
+            return GeoLocation()
+        }
         val request = "${requestTemplate}q=$lat%2C%20$long&key=$key"
         val response = RestTemplate().getForEntity(request, GeoLocation::class.java)
         if (response.statusCode.is2xxSuccessful) {
