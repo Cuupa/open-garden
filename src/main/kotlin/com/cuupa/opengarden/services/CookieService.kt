@@ -8,6 +8,9 @@ class CookieService {
     fun getCoordinatesFromCookies(req: HttpServletRequest): Coordinates {
         val coordinates = Coordinates()
 
+        if (req.cookies == null) {
+            return coordinates
+        }
         req.cookies.iterator().forEachRemaining {
             if (it.name == "lat") {
                 coordinates.lat = it.value
