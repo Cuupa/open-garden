@@ -6,7 +6,10 @@ import org.jsoup.nodes.Element
 
 class AgrarWetterConnector : WeatherConnector {
 
-    override fun getWeather(plz: String): Weather {
+    override fun getWeather(plz: String?): Weather? {
+        if (plz.isNullOrEmpty()) {
+            return null
+        }
         val url =
             "https://www.proplanta.de/Wetter/profi-wetter.php?SITEID=60&PLZ=$plz&WETTERaufrufen=plz&Wtp=&SUCHE=Wetter&wT="
         val document = Jsoup.connect(url)
@@ -14,7 +17,9 @@ class AgrarWetterConnector : WeatherConnector {
             .header("Accept-Encoding", "gzip,deflate,sdch")
             .get()
         val conditions = document.select(pathCurrentConditions)
-
+        if (conditions.isEmpty()) {
+            return null
+        }
         val weather = Weather()
         var index = 0
         conditions.forEach {

@@ -20,7 +20,7 @@ class WeatherService(private val geoLocation: GeoLocationService, private val co
             val temp = approximateCoordinates(coordinates)
             if (cache.notContains(temp)) {
                 val location = geoLocation.getLocation(temp.lat!!, temp.long!!)
-                val weather = connector?.getWeather(location.getMostPlausibleResult().components?.postcode!!)
+                val weather = connector?.getWeather(location.getMostPlausibleResult().components?.postcode)
                 if (weather != null) {
                     cache.put(temp, weather)
                     return weather

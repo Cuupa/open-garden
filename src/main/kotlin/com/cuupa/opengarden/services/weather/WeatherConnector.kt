@@ -1,5 +1,5 @@
 package com.cuupa.opengarden.services.weather
 interface WeatherConnector {
 
-    fun getWeather(plz: String): Weather
+    fun getWeather(plz: String?): Weather?
 }
