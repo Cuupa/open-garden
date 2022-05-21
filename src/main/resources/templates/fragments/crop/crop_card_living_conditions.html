@@ -15,7 +15,7 @@
             <div class="col-md-auto">
                 <div th:switch="${plant.waterRequirement_ordinal}">
                     <div th:case="0">
-                        <img th:src="@{/images/water_outline.svg}">
+                        <img th:src="@{water-outline.svg}">
                         <span th:text="${plant.waterRequirement}"></span>
                     </div>
                     <div th:case="1">
@@ -82,7 +82,7 @@
                         <span th:text="${plant.waterleafs}"></span>
                     </div>
                     <div th:case="false">
-                        <img th:src="@{/images/leaf_off.svg}">
+                        <img th:src="@{leaf-off.svg}">
                         <span th:text="${plant.waterleafs}"></span>
                     </div>
                 </div>
