@@ -30,5 +30,8 @@ data class Plant(
     var climbingAid: Boolean? = null,
     var waterRequirements: WaterRequirement? = null,
     var waterSoil: Boolean? = null,
-    var waterleafs: Boolean? = null
+    var waterleafs: Boolean? = null,
+    var blossomTime: String? = null,
+    var harvestTime: String? = null,
+    var maintenanceTime: String? = null
 )

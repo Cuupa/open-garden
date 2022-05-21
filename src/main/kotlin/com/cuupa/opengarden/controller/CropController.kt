@@ -118,6 +118,9 @@ class CropController(
         addObject("spread_text", i18n.getMessage("spread_text"))
         addObject("rowSpacing_text", i18n.getMessage("rowSpacing_text"))
         addObject("height_text", i18n.getMessage("height_text"))
+        addObject("maintenanceTime_text", i18n.getMessage("maintenanceTime_text"))
+        addObject("fruitPeriod_text", i18n.getMessage("fruitPeriod_text"))
+        addObject("blossom_period_text", i18n.getMessage("blossom_period_text"))
     }
 
     @PostMapping("/crop/save")

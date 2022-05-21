@@ -31,6 +31,9 @@ data class PlantDO(
     var waterSoil: String = "",
     var waterSoilBoolean: Boolean = true,
     var waterleafs: String = "",
-    var waterleafsBoolean: Boolean = false
+    var waterleafsBoolean: Boolean = false,
+    val blossomTime: String = "",
+    val harvestTime: String = "",
+    val maintenanceTime: String = ""
 ) {
 }

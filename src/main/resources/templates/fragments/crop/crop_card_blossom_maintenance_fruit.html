@@ -1,0 +1,104 @@
+<div class="row">
+  <div class="col-md">
+    <div class="row">
+      <div class="col-md-auto">
+        <img th:src="@{/images/diameter.svg}">
+        <!--/*@thymesVar id="plant" type="com.cuupa.opengarden.displayobjects.PlantDO"*/-->
+        <span th:text="${plant.getBlossomTime()}"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-auto">
+        <small class="text-muted">
+          <span th:text="${blossom_period_text}"></span>
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md">
+    <div class="row">
+      <div class="col-md-auto">
+        <img th:src="@{/images/arrow-expand.svg}">
+        <!--/*@thymesVar id="plant" type="com.cuupa.opengarden.displayobjects.PlantDO"*/-->
+        <span th:text="${plant.harvestTime}"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-auto">
+        <small class="text-muted">
+          <span th:text="${fruitPeriod_text}"></span>
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md">
+    <div class="row">
+      <div class="col-md-auto">
+        <img th:src="@{/images/arrow-up-down.svg}">
+        <span th:text="${plant.maintenanceTime}"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-auto">
+        <small class="text-muted">
+          <span th:text="${maintenanceTime_text}"></span>
+        </small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/>
+<!--
+<div class="row">
+  <div class="col-md">
+    <div class="row">
+      <div class="col-md-auto">
+        <img th:src="@{/images/thermometer-chevron-down.svg}">
+        <span th:text="${plant.minGarminationTemperature}"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-auto">
+        <small class="text-muted">
+          <span th:text="${minGarminationTemperature_text}"></span>
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md">
+    <div class="row">
+      <div class="col-md-auto">
+        <img th:src="@{/images/arrow-expand.svg}">
+        <span th:text="${plant.minGarminationTime}"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-auto">
+        <small class="text-muted">
+          <span th:text="${minGarminationTime_text}"></span>
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md">
+    <div class="row">
+      <div class="col-md-auto">
+        <img th:src="@{/images/arrow-up-down.svg}">
+        <span th:text="${plant.maxGarminationTime}"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-auto">
+        <small class="text-muted">
+          <span th:text="${maxGarminationTime_text}"></span>
+        </small>
+      </div>
+    </div>
+  </div>
+</div>
+-->

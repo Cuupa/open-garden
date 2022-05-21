@@ -5,6 +5,7 @@ import com.cuupa.opengarden.displayobjects.WeatherDO
 import com.cuupa.opengarden.pojos.Plant
 import com.cuupa.opengarden.pojos.WaterRequirement
 import com.cuupa.opengarden.services.weather.Weather
+import java.time.Month
 
 class DOTranslateservice(private val i18n: I18NService) {
 
@@ -12,7 +13,8 @@ class DOTranslateservice(private val i18n: I18NService) {
         return WeatherDO(
             condition = weather.condition?.value ?: 0,
             humidity = "",
-            temperature = getFloatDisplayValue(weather.temperature, unit = celcius))
+            temperature = getFloatDisplayValue(weather.temperature, unit = celcius)
+        )
     }
 
     fun translate(plant: Plant): PlantDO {
@@ -67,9 +69,23 @@ class DOTranslateservice(private val i18n: I18NService) {
             waterSoil = getWaterSoilDisplayValue(plant.waterSoil),
             waterSoilBoolean = plant.waterSoil ?: true,
             waterleafs = getWaterLeafsDisplayValue(plant.waterleafs),
-            waterleafsBoolean = plant.waterleafs ?: false
+            waterleafsBoolean = plant.waterleafs ?: false,
+            blossomTime = getMonthPeriod(plant.blossomTime) ?: "-",
+            harvestTime = getMonthPeriod(plant.harvestTime) ?: "-",
+            maintenanceTime = plant.maintenanceTime ?: "-"
         )
     }
+
+    private fun getMonthPeriod(values: String?): String? {
+        if (values.isNullOrBlank()) {
+            return null
+        }
+        val months = values.split("-").map { it.toInt() }
+        val earliest = months.minOf { it }
+        val latest = months.maxOf { it }
+        return "${i18n.getMessage(Month.of(earliest).name)} - ${i18n.getMessage(Month.of(latest).name)}"
+    }
+
 
     private fun getWaterLeafsDisplayValue(waterleafs: Boolean?): String {
         return if (waterleafs == true) {
